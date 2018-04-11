@@ -1,6 +1,6 @@
 {% extends "!layout.html" %}
-{% set css_files = css_files + ["_static/spongedocs.css"] %}
-{% set script_files = script_files + ["_static/spongedocs.js"] %}
+{% set css_files = css_files + ["_static/aridiadocs.css"] %}
+{% set script_files = script_files + ["_static/aridiadocs.js"] %}
 
 {% block sidebartitle %}
     <div id="sp-logo-container" class="page-scroll">
@@ -25,7 +25,7 @@
         {# Include Crowdin In-Context Localization JS app if this is the translation build #}
         <script>
             // Set Crowdin project context for In-Context Localization
-            var _jipt = [['project', 'sponge-docs']];
+            var _jipt = [['project', 'aridia-docs']];
         </script>
         <script src="https://cdn.crowdin.com/jipt/jipt.js"></script>
     {% endif %}
