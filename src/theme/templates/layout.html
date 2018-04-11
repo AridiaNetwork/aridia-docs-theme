@@ -1,0 +1,43 @@
+{% extends "!layout.html" %}
+{% set css_files = css_files + ["_static/spongedocs.css"] %}
+{% set script_files = script_files + ["_static/spongedocs.js"] %}
+
+{% block sidebartitle %}
+    <div id="sp-logo-container" class="page-scroll">
+        <a class="logo" href="{{ pathto(master_doc) }}">
+            <span>AridiaCraft</span>
+            <i class="fa fa-fw fa-chevron-down"></i>
+        </a>
+        <div id="sp-logo-menu">
+            <ul id="sp-logo-dropdown">
+                <li><a href="https://aridia.net"><i class="fa-fw fa fa-home"></i>Homepage</a></li>
+                <li><a href="https://aridia.net/aridiacraft"><i class="fa-fw fa fa-code"></i>AridiaCraft</a></li>
+                <li class="active"><a href="https://docs.aridia.net"><i class="fa-fw fa fa-book"></i>Docs</a></li>
+            </ul>
+        </div>
+    </div>
+
+    {% include "searchbox.html" %}
+{% endblock %}
+
+{% block extrahead %}
+    {% if language == 'translate' %}
+        {# Include Crowdin In-Context Localization JS app if this is the translation build #}
+        <script>
+            // Set Crowdin project context for In-Context Localization
+            var _jipt = [['project', 'sponge-docs']];
+        </script>
+        <script src="https://cdn.crowdin.com/jipt/jipt.js"></script>
+    {% endif %}
+
+    <!-- Google Analytics -->
+    <script>
+        (function(S,p,o,n,g,i,e){S['GoogleAnalyticsObject']=g;S[g]=S[g]||function(){
+        (S[g].q=S[g].q||[]).push(arguments)},S[g].l=1*new Date();i=p.createElement(o),
+        e=p.getElementsByTagName(o)[0];i.async=1;i.src=n;e.parentNode.insertBefore(i,e)
+        })(window,document,'script','https://www.google-analytics.com/analytics.js','ga');
+
+        ga('create', 'UA-59476017-2', 'auto');
+        ga('send', 'pageview');
+    </script>
+{% endblock %}
