@@ -3,7 +3,7 @@ import aridia_docs_theme
 
 setup(
     name='aridia-docs-theme',
-    version=sponge_docs_theme.__version__,
+    version=aridia_docs_theme.__version__,
     description='Theme for AridiaCraft',
     url='https://github.com/AridiaNetwork/aridia-docs-theme',
     author='AridiaNetwork',
