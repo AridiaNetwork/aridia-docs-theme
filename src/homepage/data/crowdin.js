@@ -1,6 +1,6 @@
 const rp = require('request-promise-native');
 
-const projectIdentifier = 'sponge-docs';
+const projectIdentifier = 'aridia-docs';
 const crowdinApiKey = process.env.CROWDIN_API_KEY;
 
 const localLanguages = require('./languages');
