@@ -24,18 +24,18 @@ const
 
     webserver = require('gulp-webserver');
 
-gulp.task('clean', () => del(['sponge_docs_theme', 'dist', 'build']));
+gulp.task('clean', () => del(['aridia_docs_theme', 'dist', 'build']));
 
 // Theme
 gulp.task('theme:files', () =>
     gulp.src('src/theme/{*.*,{static,templates}/**}')
-        .pipe(gulp.dest('sponge_docs_theme'))
+        .pipe(gulp.dest('aridia_docs_theme'))
 );
 
 gulp.task('theme:svg', () =>
     gulp.src('src/theme/svg/**')
         .pipe(svgmin())
-        .pipe(gulp.dest('sponge_docs_theme/static'))
+        .pipe(gulp.dest('aridia_docs_theme/static'))
 );
 
 gulp.task('theme:scripts', () =>
@@ -44,16 +44,16 @@ gulp.task('theme:scripts', () =>
 );
 
 gulp.task('theme:scss', () =>
-    gulp.src('src/theme/scss/spongedocs.scss')
+    gulp.src('src/theme/scss/aridiadocs.scss')
         .pipe(sass())
         .pipe(postcss([autoprefixer()]))
         .pipe(cleanCSS())
-        .pipe(gulp.dest('sponge_docs_theme/static'))
+        .pipe(gulp.dest('aridia_docs_theme/static'))
 );
 
 gulp.task('theme:js', () =>
     gulp.src('src/theme/js/*.js')
-        .pipe(concat('spongedocs.js'))
+        .pipe(concat('aridiadocs.js'))
         .pipe(buble({
             transforms: {
                 dangerousForOf: true
@@ -64,7 +64,7 @@ gulp.task('theme:js', () =>
                 toplevel: true,
             },
         }))
-        .pipe(gulp.dest('sponge_docs_theme/static'))
+        .pipe(gulp.dest('aridia_docs_theme/static'))
 );
 
 gulp.task('theme:js:worker', () =>
@@ -75,7 +75,7 @@ gulp.task('theme:js:worker', () =>
                 toplevel: true
             }
         }))
-        .pipe(gulp.dest('sponge_docs_theme/extra'))
+        .pipe(gulp.dest('aridia_docs_theme/extra'))
 );
 
 gulp.task('theme:js:lib', () =>
@@ -85,12 +85,12 @@ gulp.task('theme:js:lib', () =>
                 comments: 'some'
             }
         }))
-        .pipe(gulp.dest('sponge_docs_theme/static'))
+        .pipe(gulp.dest('aridia_docs_theme/static'))
 );
 
 
 gulp.task('theme:js:gettext', ['theme:files'],
-    shell('babel', 'python', ['setup.py', 'extract_messages', '-o', 'sponge_docs_theme/theme.pot'])
+    shell('babel', 'python', ['setup.py', 'extract_messages', '-o', 'aridia_docs_theme/theme.pot'])
 );
 
 gulp.task('theme:build', ['theme:files', 'theme:svg', 'theme:scripts', 'theme:scss',
@@ -111,7 +111,7 @@ gulp.task('theme', ['theme:watch']);
 let renderData = null;
 
 gulp.task('homepage:load-data', () =>
-    !renderData && require('./src/homepage/data/spongedocs').loadData()
+    !renderData && require('./src/homepage/data/aridiadocs').loadData()
         .then(data => renderData = data)
 );
 
@@ -134,7 +134,7 @@ gulp.task('homepage:html', ['homepage:load-data'], () =>
 );
 
 gulp.task('homepage:scss', () =>
-    gulp.src('src/homepage/scss/spongedocs.scss')
+    gulp.src('src/homepage/scss/aridiadocs.scss')
         .pipe(sass())
         .pipe(postcss([autoprefixer()]))
         .pipe(cleanCSS())
