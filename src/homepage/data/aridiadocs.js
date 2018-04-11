@@ -17,10 +17,10 @@ function prepareData(cldr, versions, languages, localeMappings) {
 
     // Add source language
     languages.unshift({
-        name: "English",
-        displayName: "English",
-        code: 'en',
-        localeCode: 'en'
+        name: "German",
+        displayName: "German",
+        code: 'de',
+        localeCode: 'de'
     });
 
     const mainVersion = versions.shift();

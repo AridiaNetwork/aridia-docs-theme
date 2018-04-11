@@ -4,8 +4,8 @@ const githubToken = process.env.GITHUB_TOKEN;
 if (githubUser && githubToken) {
     const rp = require('request-promise-native');
 
-    const githubOwner = 'SpongePowered';
-    const githubRepo = 'SpongeDocs';
+    const githubOwner = 'AridiaNetwork';
+    const githubRepo = 'AridiaDocs';
 
     module.exports.getVersions = () =>
         /* We only check branches here and not tags, because the old,
@@ -14,7 +14,7 @@ if (githubUser && githubToken) {
         rp({
             url: `https://api.github.com/repos/${githubOwner}/${githubRepo}/branches`,
             headers: {
-                'User-Agent': 'SpongeDocsHomepage'
+                'User-Agent': 'AridiaCraftDocs'
             },
             auth: {
                 user: githubUser,
